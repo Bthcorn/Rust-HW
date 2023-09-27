@@ -101,6 +101,27 @@ fn test_cal_average_area() {
         assert!(area.1 >= 0.0 && area.1 <= PI*(20.*20.));
         assert!(!area.0.is_empty());
     }
+
+
+    let layer1 = Layer {
+        name: String::from("Layer 1"),
+        color: String::from("#D090E925"),
+        objects: vec![Circle { x: 0.0, y: 0.0, r: 5.0 }, Circle { x: 1.0, y: 2.0, r: 3.0 }],
+    };
+
+    let list1 = cal_average_area(&[layer1]);
+    let expected = vec![("Layer 1".to_string() , 53.38)];
+    assert_eq!(list1, expected);
+
+    let layer2 = Layer {
+        name: String::from("Layer 2"),
+        color: String::from("#D090E925"),
+        objects: vec![Circle { x: 1.0, y: 2.0, r: 3.0 }, Circle { x: 3.0, y: 4.0, r: 2.0 } ]
+    };
+    let list2 = cal_average_area(&[layer2]);
+    let expected2 = vec![("Layer 2".to_string() , 20.41)];
+    assert_eq!(list2, expected2);
+
 }
 
 fn main() {
