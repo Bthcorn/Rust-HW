@@ -36,6 +36,3 @@ fn test_sort_value() {
         .success()
         .stdout("Ascending: [3, 4, 4, 7, 8, 9]\nDescending: [9, 8, 7, 4, 4, 3]\n");
 }
-
-
-

@@ -10,6 +10,14 @@ pub fn count_total_words(text: &str) -> usize {
     count
 }
 
+fn count_total_words2(text: &str) -> Vec<String> {
+    let word = text.split(|c: char| c.is_whitespace() || c == ',')
+    .map(|s| s.trim_matches(|c: char| !c.is_alphanumeric()).to_string())
+    .filter(|s| !s.is_empty())
+    .collect::<Vec<String>>();
+    word
+}
+
 pub fn read_to_doc_c(filename: &[String]) -> Vec<(String, usize)> {
     let mut list_docs = Vec::new();
     for file_path in filename {
